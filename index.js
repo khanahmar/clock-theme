@@ -50,6 +50,7 @@ function setTime() {
   let month = date.getMonth()
   let day = date.getDay()
   let hourForClock = hour % 12
+  const ampm = hour >= 12 ? "pm" : "am"
 
   hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
     hourForClock,
@@ -58,12 +59,25 @@ function setTime() {
     0,
     360
   )}deg)`
-  minuteEl.style.transform = `translate(-50%, -100%) rotate(${
-    (minute, 0, 59, 0, 360)
-  }deg)`
-  secondEl.style.transform = `translate(-50%, -100%) rotate(${
-    (seconds, 0, 59, 0, 360)
-  }deg)`
+  minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    minute,
+    0,
+    59,
+    0,
+    360
+  )}deg)`
+  secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    seconds,
+    0,
+    59,
+    0,
+    360
+  )}deg)`
+
+  timeEl.innerHTML = `${hourForClock} : ${
+    minute < 0 ? `0${minute}` : minute
+  } ${ampm}`
+  dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${day}</span>`
 }
 
 function scale(number, inMin, inMax, outMin, outMax) {
@@ -71,3 +85,5 @@ function scale(number, inMin, inMax, outMin, outMax) {
 }
 
 setTime()
+
+setInterval(setTime, 1000)
