@@ -3,13 +3,13 @@
 }
 
 :root {
-  --primary-color: rgb(28, 28, 28);
-  --secondary-color: rgb(224, 224, 224);
+  --primary-color: rgb(101, 101, 101);
+  --secondary-color: rgb(255, 255, 255);
 }
 
 html.dark {
-  --primary-color: rgb(255, 255, 255);
-  --secondary-color: rgb(54, 54, 54);
+  --primary-color: rgb(161, 161, 161);
+  --secondary-color: rgb(217, 217, 217);
 }
 
 html {
@@ -17,7 +17,7 @@ html {
 }
 
 html.dark {
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(37, 37, 37);
   color: var(--primary-color);
 }
 
